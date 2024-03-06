@@ -33,22 +33,18 @@ void solve(){
     for(int i=0;i<q;i++){
         cin>>qa>>li;
         if(qa==1){
-            if(ve[0]>li){
-                ve[0]=li;
+            int pos = lower_bound(ve.begin(),ve.end(), li)-ve.begin();
+            if(ve[pos] == li) continue;
+            if(ve[n-1] < li) {
+                ve.push_back(li);
+                n++;
             } else {
-                cout<<i<<endl;
-                low=upper_bound(ve.begin(),ve.end(),li);
-                if(!(ve[(low-ve.begin())-1]==li)){
-                    ve[low - ve.begin()] = li;
-                }
+                ve[pos] = li;
             }
         } else {
             cin>>ls;
-            low=lower_bound(ve.begin(),ve.end(),li);
-            //cout<<"El menor"<<(low-ve.begin())<<endl;
-            up=lower_bound(ve.begin(),ve.end(),ls+1);
-            //cout<<"El mayor"<<(up-ve.begin())<<endl;
-            cout<<(up-ve.begin())-(low-ve.begin())<<endl;
+            int cant = upper_bound(ve.begin(),ve.end(), ls) - lower_bound(ve.begin(),ve.end(), li); 
+            cout<<cant<<endl;
         }
     }
 }
