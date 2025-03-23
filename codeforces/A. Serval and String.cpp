@@ -28,7 +28,7 @@ void fastIO()
 
 void solve()
 {
-    int n,k;
+        int n,k;
 	string s;
 	cin>>n>>k>>s;
 	string t=s;
@@ -40,7 +40,7 @@ void solve()
 		else 
 		{
 			if(s<t) cout<<"YES"<<endl;
-			else cout<<"NO"<endl;
+			else cout<<"NO"<<endl;
 		}
 	}
 	return;
