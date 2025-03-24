@@ -26,22 +26,13 @@ void fastIO()
     cout.tie(NULL);
 }
 
-void solve()
-{
-    	int n, k;
-	cin >> n >> k;
-	int sum = 0;
-	for (int i = 0; i < n; i++) {
-		int s; cin >> s;
-		sum += s;
-	}
- 
-	if (sum % n != 0) {
-		cout << "NO" <<endl;
-	}
-	else {
-		cout << (sum / n == k ? "YES" : "NO") << endl;
-	}
+void solve(){
+	long long x, y, a;
+        cin >> x >> y >> a;
+        const long long sum = x + y;
+        const long long n = a / sum;
+        const long long rem = a - n * sum;
+        cout << (rem >= x ? "YES\n" : "NO\n");
 }
 
 int main()

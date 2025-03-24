@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 typedef long long ll;
 typedef unsigned long long ull;
 typedef long double ld;
@@ -48,7 +47,7 @@ int main()
 {
     fastIO();
     int T;
-    // cin >> T;
+    cin >> T;
     while (T--)
     {
         solve();
