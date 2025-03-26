@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 typedef long long ll;
 typedef unsigned long long ull;
 typedef long double ld;
@@ -27,11 +26,26 @@ void fastIO()
 }
 
 void solve(){
-	int x,y,a;
-	cin>>x>>y>>a;
-	int z=a%(x+y);
-	if(z<x) cout<<"NO"<<endl;
-	else cout<<"YES"<<endl;
+	int n;
+        cin >> n;
+        vector<int> digits(n);
+        
+        for (int i = 0; i < n; i++) {
+            cin >> digits[i];
+        }
+        
+       int freq[10] = {0};
+       int answer = 0;
+        
+       for (int i = 0; i < n; i++) {
+            freq[digits[i]]++;
+            if (freq[0] >= 3 && freq[1] >= 1 && freq[2] >= 2 && freq[3] >= 1 && freq[5] >= 1) {
+                answer = i + 1;
+                break;
+            }
+       }
+        
+        cout << answer << endl;
 }
 
 int main()
