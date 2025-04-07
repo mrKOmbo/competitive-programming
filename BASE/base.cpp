@@ -34,8 +34,7 @@ void solve()
 int main()
 {
     fastIO();
-    int T;
-    // cin >> T;
+    int T; // cin >> T;
     while (T--)
     {
         solve();
