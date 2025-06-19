@@ -26,6 +26,8 @@ void fastIO()
     cout.tie(NULL);
 }
 
+
+
 void solve()
 {
     
