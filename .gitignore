@@ -1,1 +1,31 @@
-.exe
+# Compiled binaries
+*.exe
+*.out
+*.o
+a.out
+
+# Build directories
+build/
+Debug/
+Release/
+output/
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Input/Output files for testing
+input.txt
+output.txt
+*.in
+*.ans
+
+# Temporary files
+*.tmp
+temp/
