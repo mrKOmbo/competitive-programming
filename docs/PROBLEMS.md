@@ -55,4 +55,4 @@ Lista completa de problemas resueltos organizados por plataforma.
 
 ---
 
-*Última actualización: Diciembre 2024*
+*Última actualización: Diciembre 2024*| 2024A | [A. Profitable Interest Rate](https://codeforces.com/contest/2024/problem/A) | [2024A-A.-Profitable-Interest-Rate.cpp](../) | 800 | math, implementation | ✅ |

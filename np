@@ -1,0 +1,264 @@
+#!/bin/bash
+
+# Script rápido para crear problemas de competitive programming
+# Con creación automática de archivos input.txt y output.txt
+# Uso: ./np [plataforma] [id] [nombre]
+
+# Directorio base del repositorio
+BASE_DIR="/Users/milo/Files/reps/competitive-programming"
+
+# Colores
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+YELLOW='\033[1;33m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
+# Cambiar al directorio del repositorio
+cd "$BASE_DIR"
+
+# Función para mostrar ayuda
+show_help() {
+    echo -e "${BOLD}${CYAN}=== Competitive Programming - Quick Problem Setup ===${NC}\n"
+    echo -e "${BOLD}Uso:${NC}"
+    echo -e "  ./np                    ${BLUE}# Modo interactivo${NC}"
+    echo -e "  ./np cf 1598A \"Name\"    ${BLUE}# Codeforces practice${NC}"
+    echo -e "  ./np cf-c A \"Name\"      ${BLUE}# Codeforces contest${NC}"
+    echo -e "  ./np cses 1234 \"Name\"   ${BLUE}# CSES problem${NC}"
+    echo -e "  ./np lc 1 \"Two Sum\"     ${BLUE}# LeetCode problem${NC}\n"
+    echo -e "${BOLD}Plataformas:${NC}"
+    echo -e "  cf     - Codeforces (practice)"
+    echo -e "  cf-c   - Codeforces (contest)"
+    echo -e "  cses   - CSES"
+    echo -e "  lc     - LeetCode"
+    echo -e ""
+    echo -e "${BOLD}Compilación:${NC}"
+    echo -e "  Los archivos se compilan con:"
+    echo -e "  ${CYAN}g++ -std=c++17 -O2 archivo.cpp -o programa && ./programa < input.txt > output.txt${NC}"
+    exit 0
+}
+
+# Función para crear archivos de I/O
+create_io_files() {
+    local dir=$1
+
+    # Crear input.txt si no existe
+    if [ ! -f "$dir/input.txt" ]; then
+        touch "$dir/input.txt"
+        echo -e "${GREEN}✅ Creado: $dir/input.txt${NC}"
+    fi
+
+    # Crear output.txt si no existe
+    if [ ! -f "$dir/output.txt" ]; then
+        touch "$dir/output.txt"
+        echo -e "${GREEN}✅ Creado: $dir/output.txt${NC}"
+    fi
+}
+
+# Función para crear el archivo
+create_file() {
+    local platform=$1
+    local problem_id=$2
+    local problem_name=$3
+    local contest_name=$4
+
+    # Normalizar nombre del archivo
+    local filename="${problem_id}-${problem_name// /-}.cpp"
+    filename=$(echo "$filename" | sed 's/[^a-zA-Z0-9.-]/-/g')
+
+    # Determinar la ruta según la plataforma
+    local filepath=""
+    local directory=""
+    case $platform in
+        "cf")
+            directory="$BASE_DIR/codeforces/practice"
+            filepath="$directory/$filename"
+            mkdir -p "$directory"
+            ;;
+        "cf-c")
+            if [ -z "$contest_name" ]; then
+                echo -e "${YELLOW}Nombre del contest: ${NC}"
+                read contest_name
+            fi
+            contest_folder=$(echo "$contest_name" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
+            directory="$BASE_DIR/codeforces/contests/$contest_folder"
+            filepath="$directory/$filename"
+            mkdir -p "$directory"
+            ;;
+        "cses")
+            directory="$BASE_DIR/cses"
+            filepath="$directory/$filename"
+            mkdir -p "$directory"
+            ;;
+        "lc")
+            directory="$BASE_DIR/leetcode"
+            filepath="$directory/$filename"
+            mkdir -p "$directory"
+            ;;
+        *)
+            echo -e "${RED}❌ Plataforma no reconocida: $platform${NC}"
+            exit 1
+            ;;
+    esac
+
+    # Verificar si el archivo existe
+    if [ -f "$filepath" ]; then
+        echo -e "${YELLOW}⚠️  El archivo ya existe: $filepath${NC}"
+        echo -n "¿Sobrescribir? (s/n): "
+        read -n 1 overwrite
+        echo
+        if [ "$overwrite" != "s" ]; then
+            echo -e "${RED}❌ Cancelado${NC}"
+            exit 0
+        fi
+    fi
+
+    # Obtener URL del problema (opcional)
+    echo -e "${CYAN}URL del problema (Enter para omitir): ${NC}"
+    read problem_url
+
+    # Seleccionar plantilla
+    local template_file="$BASE_DIR/templates/base.cpp"
+    if [ -f "$BASE_DIR/templates/template-extended.cpp" ]; then
+        echo -e "${CYAN}Seleccionar plantilla:${NC}"
+        echo "  1. base.cpp (simple)"
+        echo "  2. template-extended.cpp (completa)"
+        echo -n "Opción (1-2): "
+        read -n 1 template_choice
+        echo
+        if [ "$template_choice" == "2" ]; then
+            template_file="$BASE_DIR/templates/template-extended.cpp"
+        fi
+    fi
+
+    # Crear el archivo con el header y la plantilla
+    cat > "$filepath" << EOF
+/*
+ * Problem: $problem_name
+ * Platform: $(echo $platform | tr '[:lower:]' '[:upper:]')
+ * Problem ID: $problem_id
+EOF
+
+    if [ ! -z "$problem_url" ]; then
+        echo " * URL: $problem_url" >> "$filepath"
+    fi
+
+    echo " * Date: $(date +%Y-%m-%d)" >> "$filepath"
+    echo " * Compilation: g++ -std=c++17 -O2 $filename -o programa && ./programa < input.txt > output.txt" >> "$filepath"
+    echo " */" >> "$filepath"
+    echo "" >> "$filepath"
+
+    # Agregar la plantilla
+    if [ -f "$template_file" ]; then
+        cat "$template_file" >> "$filepath"
+    else
+        # Plantilla por defecto si no existe el archivo
+        cat >> "$filepath" << 'TEMPLATE'
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<ll> vll;
+
+#define all(v) (v).begin(), (v).end()
+#define pb push_back
+#define endl '\n'
+
+void fastIO() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
+
+void solve() {
+    // Solution code here
+
+}
+
+int main() {
+    fastIO();
+
+    int t = 1;
+    cin >> t;
+
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
+TEMPLATE
+    fi
+
+    # Crear archivos de I/O
+    create_io_files "$directory"
+
+    echo -e "${GREEN}✅ Archivo creado: ${BOLD}$filepath${NC}"
+    echo -e "${BLUE}📥 Input: $directory/input.txt${NC}"
+    echo -e "${BLUE}📤 Output: $directory/output.txt${NC}"
+
+    # Mostrar comando de compilación
+    echo -e "\n${CYAN}🔧 Comando de compilación:${NC}"
+    echo -e "${BOLD}cd $directory${NC}"
+    echo -e "${BOLD}g++ -std=c++17 -O2 $filename -o programa && ./programa < input.txt > output.txt${NC}"
+
+    # Preguntar si abrir en VS Code (solo en macOS/Linux con code instalado)
+    if command -v code &> /dev/null; then
+        echo -ne "\n${CYAN}¿Abrir en VS Code? (s/n): ${NC}"
+        read -n 1 open_code
+        echo
+        if [ "$open_code" == "s" ]; then
+            code "$filepath"
+            code "$directory/input.txt"
+        fi
+    fi
+}
+
+# Modo interactivo
+interactive_mode() {
+    echo -e "${BOLD}${CYAN}=== Competitive Programming - Problem Setup ===${NC}\n"
+
+    # Seleccionar plataforma
+    echo -e "${BLUE}Selecciona la plataforma:${NC}"
+    echo "  1. Codeforces (practice)"
+    echo "  2. Codeforces (contest)"
+    echo "  3. CSES"
+    echo "  4. LeetCode"
+    echo -n "Opción (1-4): "
+    read platform_choice
+
+    case $platform_choice in
+        1) platform="cf" ;;
+        2) platform="cf-c" ;;
+        3) platform="cses" ;;
+        4) platform="lc" ;;
+        *) echo -e "${RED}❌ Opción inválida${NC}"; exit 1 ;;
+    esac
+
+    # Obtener información del problema
+    echo -e "${CYAN}ID del problema: ${NC}"
+    read problem_id
+
+    echo -e "${CYAN}Nombre del problema: ${NC}"
+    read problem_name
+
+    create_file "$platform" "$problem_id" "$problem_name"
+}
+
+# Main
+if [ $# -eq 0 ]; then
+    interactive_mode
+elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+    show_help
+elif [ $# -ge 3 ]; then
+    # Modo rápido con argumentos
+    create_file "$1" "$2" "$3" "$4"
+else
+    echo -e "${RED}❌ Argumentos insuficientes${NC}"
+    echo "Uso: ./np [plataforma] [id] [nombre]"
+    echo "O ejecuta ./np sin argumentos para modo interactivo"
+    echo "Usa ./np -h para ver ayuda"
+    exit 1
+fi
