@@ -80,7 +80,6 @@ T power(T a, T b, T mod = MOD) {
 }
 
 void solve() {
-    // Solution code here
     int n,m,r=0; cin>>n>>m;
     vector<int> s;
     for(int i=0;i<n;i++){
@@ -110,4 +109,5 @@ int main() {
     }
 
     return 0;
+
 }
