@@ -39,10 +39,10 @@ extract_metadata() {
     local metadata=""
 
     # Extraer información del header del archivo
-    problem=$(grep "Problem:" "$file" 2>/dev/null | sed 's/.*Problem: //' | sed 's/\*//')
-    platform=$(grep "Platform:" "$file" 2>/dev/null | sed 's/.*Platform: //' | sed 's/\*//')
-    problem_id=$(grep "Problem ID:" "$file" 2>/dev/null | sed 's/.*Problem ID: //' | sed 's/\*//')
-    url=$(grep "URL:" "$file" 2>/dev/null | sed 's/.*URL: //' | sed 's/\*//')
+    problem=$(grep "Problem:" "$file" 2>/dev/null | sed 's/.*Problem: //' | sed 's/\*//' | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//')
+    platform=$(grep "Platform:" "$file" 2>/dev/null | sed 's/.*Platform: //' | sed 's/\*//' | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//')
+    problem_id=$(grep "Problem ID:" "$file" 2>/dev/null | sed 's/.*Problem ID: //' | sed 's/\*//' | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//')
+    url=$(grep "URL:" "$file" 2>/dev/null | sed 's/.*URL: //' | sed 's/\*//' | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//')
 
     echo "$problem|$platform|$problem_id|$url"
 }
@@ -84,7 +84,7 @@ clean_files() {
     return $removed
 }
 
-# Función para actualizar PROBLEMS.md
+# Función mejorada para actualizar PROBLEMS.md
 update_documentation() {
     local filepath=$1
     local metadata=$2
@@ -98,7 +98,7 @@ update_documentation() {
     # Archivo de problemas
     local problems_file="$BASE_DIR/docs/PROBLEMS.md"
 
-    # Crear archivo si no existe
+    # Crear archivo si no existe con estructura completa
     if [ ! -f "$problems_file" ]; then
         mkdir -p "$BASE_DIR/docs"
         cat > "$problems_file" << 'EOF'
@@ -108,11 +108,15 @@ Lista completa de problemas resueltos organizados por plataforma.
 
 ## Codeforces
 
-### Practice Problems
-| ID | Problema | Archivo | Dificultad | Categoría | Estado |
-|----:|----------|---------|------------|-----------|--------|
-
 ### Contests
+
+#### Educational Codeforces Round 172 (Div. 2)
+| Problema | Archivo | Estado |
+|----------|---------|--------|
+| A. Greedy Monocarp | [A-Greedy-Monocarp.cpp](../codeforces/contests/educational-round-172-div2/A-Greedy-Monocarp.cpp) | ✅ |
+| B. Game with Colored Marbles | [B-Game-with-Colored-Marbles.cpp](../codeforces/contests/educational-round-172-div2/B-Game-with-Colored-Marbles.cpp) | ✅ |
+
+### Practice Problems
 | ID | Problema | Archivo | Dificultad | Categoría | Estado |
 |----:|----------|---------|------------|-----------|--------|
 
@@ -132,7 +136,7 @@ EOF
 
     # Crear la entrada
     local filename=$(basename "$filepath")
-    local relpath=$(realpath --relative-to="$BASE_DIR" "$filepath")
+    local relpath=$(echo "$filepath" | sed "s|$BASE_DIR/||")
 
     # Formatear entrada según tenga URL o no
     local entry=""
@@ -148,12 +152,74 @@ EOF
         return 1
     fi
 
-    # Agregar la entrada en la sección correcta
-    # Por simplicidad, agregamos al final de la sección correspondiente
-    echo "$entry" >> "$problems_file"
-    echo -e "  ${GREEN}✓${NC} Actualizado: docs/PROBLEMS.md"
+    # Determinar en qué sección insertar
+    local section=""
+    local platform_lower=$(echo "$platform" | tr '[:upper:]' '[:lower:]')
 
-    return 0
+    if [[ "$filepath" == *"codeforces/contests"* ]]; then
+        section="### Contests"
+    elif [[ "$platform_lower" == *"codeforces"* ]] || [[ "$platform_lower" == "cf" ]]; then
+        section="### Practice Problems"
+    elif [[ "$platform_lower" == *"cses"* ]]; then
+        section="## CSES Problem Set"
+    elif [[ "$platform_lower" == *"leetcode"* ]] || [[ "$platform_lower" == "lc" ]]; then
+        section="## LeetCode"
+    else
+        section="### Practice Problems"
+    fi
+
+    # Usar Python para insertar en el lugar correcto
+    python3 << EOF
+import re
+
+with open("$problems_file", 'r') as f:
+    lines = f.readlines()
+
+# Buscar la sección correcta
+inserted = False
+for i in range(len(lines)):
+    if "$section" in lines[i]:
+        # Buscar el encabezado de la tabla (línea con |---|)
+        for j in range(i+1, min(i+10, len(lines))):
+            if '|----' in lines[j] or '|---' in lines[j]:
+                # Insertar después del encabezado
+                # Buscar dónde insertar (antes de una línea vacía o al final de la tabla)
+                insert_pos = j + 1
+                while insert_pos < len(lines):
+                    if lines[insert_pos].strip() == '' or not lines[insert_pos].startswith('|'):
+                        break
+                    insert_pos += 1
+                lines.insert(insert_pos, "$entry\n")
+                inserted = True
+                break
+        break
+
+if not inserted:
+    # Si no encontramos la sección, agregar al final antes de la línea de actualización
+    for i in range(len(lines)-1, -1, -1):
+        if '---' in lines[i]:
+            lines.insert(i, "$entry\n")
+            break
+
+# Actualizar fecha
+content = ''.join(lines)
+import datetime
+month_year = datetime.datetime.now().strftime("%B %Y")
+content = re.sub(r'\*Última actualización:.*\*', f'*Última actualización: {month_year}*', content)
+
+with open("$problems_file", 'w') as f:
+    f.write(content)
+
+print("✅ Actualizado correctamente")
+EOF
+
+    if [ $? -eq 0 ]; then
+        echo -e "  ${GREEN}✓${NC} Actualizado: docs/PROBLEMS.md"
+        return 0
+    else
+        echo -e "  ${RED}✗${NC} Error actualizando PROBLEMS.md"
+        return 1
+    fi
 }
 
 # Función principal para completar problema
@@ -205,9 +271,9 @@ complete_problem() {
     update_documentation "$filepath" "$metadata" "$difficulty" "$category" "$status"
 
     # Resumen
-    echo -e "\n${GREEN}$═══════════════════════════════════════════${NC}"
+    echo -e "\n${GREEN}═══════════════════════════════════════════${NC}"
     echo -e "${BOLD}${GREEN}✅ ¡PROBLEMA COMPLETADO!${NC}"
-    echo -e "${GREEN}$═══════════════════════════════════════════${NC}\n"
+    echo -e "${GREEN}═══════════════════════════════════════════${NC}\n"
 
     echo -e "${CYAN}Próximos pasos:${NC}"
     echo -e "  1. ${BOLD}git add -A && git commit -m \"Solve: $problem\"${NC}"
