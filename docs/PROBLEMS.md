@@ -32,6 +32,7 @@ Lista completa de problemas resueltos organizados por plataforma.
 | - | Gorilla and the Exam | [B-Gorilla-and-the-Exam.cpp](../codeforces/practice/B-Gorilla-and-the-Exam.cpp) | B | greedy | ✅ |
 | - | The Third Side | [B-The-Third-Side.cpp](../codeforces/practice/B-The-Third-Side.cpp) | B | - | ✅ |
 | 2050A | [Line Breaks](https://codeforces.com/problemset/problem/2050/A) | [2050A-Line-Breaks.cpp](../codeforces/practice/2050A-Line-Breaks.cpp) | Basica | implementation | ⚠️ |
+| 2049A | [MEX Destruction](https://codeforces.com/problemset/problem/2049/A) | [2049A-MEX-Destruction.cpp](../codeforces/practice/2049A-MEX-Destruction.cpp) | medium | greedy | ✅ |
 
 ## CSES Problem Set
 
