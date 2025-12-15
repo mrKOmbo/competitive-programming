@@ -34,6 +34,7 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 2050A | [Line Breaks](https://codeforces.com/problemset/problem/2050/A) | [2050A-Line-Breaks.cpp](../codeforces/practice/2050A-Line-Breaks.cpp) | Basica | implementation | ⚠️ |
 | 2049A | [MEX Destruction](https://codeforces.com/problemset/problem/2049/A) | [2049A-MEX-Destruction.cpp](../codeforces/practice/2049A-MEX-Destruction.cpp) | medium | greedy | ✅ |
 | 2051A | [Preparing for the Olympiad](https://codeforces.com/problemset/problem/2051/A) | [2051A-Preparing-for-the-Olympiad.cpp](../codeforces/practice/2051A-Preparing-for-the-Olympiad.cpp) | easy | greedy | ✅ |
+| 2061A | [Kevin and Arithmetic](https://codeforces.com/problemset/problem/2061/A) | [2061A-Kevin-and-Arithmetic.cpp](../codeforces/practice/2061A-Kevin-and-Arithmetic.cpp) | easy | math | ✅ |
 
 ## CSES Problem Set
 
