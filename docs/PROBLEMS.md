@@ -58,6 +58,8 @@ Lista completa de problemas resueltos organizados por plataforma.
 - **Codeforces**: 18
 - **CSES**: 2
 
+| container-with-most-water | [11](https://leetcode.com/problems/container-with-most-water/description/) | [container-with-most-water-11.cpp](../leetcode/container-with-most-water-11.cpp) | easy | two pointer | ✅ |
+| 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/) | [125-Valid-Palindrome.cpp](../leetcode/125-Valid-Palindrome.cpp) | easy | two pointers | ✅ |
 ---
 
-*Última actualización: December 2025*
+*Última actualización: January 2026*
