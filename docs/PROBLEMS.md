@@ -60,6 +60,8 @@ Lista completa de problemas resueltos organizados por plataforma.
 
 | container-with-most-water | [11](https://leetcode.com/problems/container-with-most-water/description/) | [container-with-most-water-11.cpp](../leetcode/container-with-most-water-11.cpp) | easy | two pointer | ✅ |
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/) | [125-Valid-Palindrome.cpp](../leetcode/125-Valid-Palindrome.cpp) | easy | two pointers | ✅ |
+| 167 | [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/) | [167-Two-Sum-II---Input-Array-Is-Sorted.cpp](../leetcode/167-Two-Sum-II---Input-Array-Is-Sorted.cpp) | easy | two pointers | ✅ |
+| 15 | [3Sum](https://leetcode.com/problems/3sum/description/) | [15-3Sum.cpp](../leetcode/15-3Sum.cpp) | medium | two pointers | ✅ |
 ---
 
 *Última actualización: January 2026*
