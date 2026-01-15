@@ -65,6 +65,7 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/) | [3-Longest-Substring-Without-Repeating-Characters.cpp](../leetcode/3-Longest-Substring-Without-Repeating-Characters.cpp) | easy | sliding window | ✅ |
 | 643 | [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/description/) | [643-Maximum-Average-Subarray-I.cpp](../leetcode/643-Maximum-Average-Subarray-I.cpp) | easy | slinding window | ✅ |
 | 209 | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/) | [209-Minimum-Size-Subarray-Sum.cpp](../leetcode/209-Minimum-Size-Subarray-Sum.cpp) | medium | sliding windows | ✅ |
+| 424 | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/) | [424-Longest-Repeating-Character-Replacement.cpp](../leetcode/424-Longest-Repeating-Character-Replacement.cpp) | medium | sliding windows | ✅ |
 ---
 
 *Última actualización: January 2026*
