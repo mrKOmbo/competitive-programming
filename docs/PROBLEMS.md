@@ -62,6 +62,8 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/) | [125-Valid-Palindrome.cpp](../leetcode/125-Valid-Palindrome.cpp) | easy | two pointers | ✅ |
 | 167 | [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/) | [167-Two-Sum-II---Input-Array-Is-Sorted.cpp](../leetcode/167-Two-Sum-II---Input-Array-Is-Sorted.cpp) | easy | two pointers | ✅ |
 | 15 | [3Sum](https://leetcode.com/problems/3sum/description/) | [15-3Sum.cpp](../leetcode/15-3Sum.cpp) | medium | two pointers | ✅ |
+| 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/) | [3-Longest-Substring-Without-Repeating-Characters.cpp](../leetcode/3-Longest-Substring-Without-Repeating-Characters.cpp) | easy | sliding window | ✅ |
+| 643 | [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/description/) | [643-Maximum-Average-Subarray-I.cpp](../leetcode/643-Maximum-Average-Subarray-I.cpp) | easy | slinding window | ✅ |
 ---
 
 *Última actualización: January 2026*
