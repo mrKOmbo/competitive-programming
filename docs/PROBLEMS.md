@@ -67,6 +67,7 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 209 | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/) | [209-Minimum-Size-Subarray-Sum.cpp](../leetcode/209-Minimum-Size-Subarray-Sum.cpp) | medium | sliding windows | ✅ |
 | 424 | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/) | [424-Longest-Repeating-Character-Replacement.cpp](../leetcode/424-Longest-Repeating-Character-Replacement.cpp) | medium | sliding windows | ✅ |
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum/description/) | [1-Two-Sum.cpp](../leetcode/1-Two-Sum.cpp) | medium | hast tables | ✅ |
+| 49 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/description/) | [49-Group-Anagrams.cpp](../leetcode/49-Group-Anagrams.cpp) | medium | hash tables | ✅ |
 ---
 
 *Última actualización: January 2026*
