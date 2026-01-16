@@ -66,6 +66,7 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 643 | [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/description/) | [643-Maximum-Average-Subarray-I.cpp](../leetcode/643-Maximum-Average-Subarray-I.cpp) | easy | slinding window | ✅ |
 | 209 | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/) | [209-Minimum-Size-Subarray-Sum.cpp](../leetcode/209-Minimum-Size-Subarray-Sum.cpp) | medium | sliding windows | ✅ |
 | 424 | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/) | [424-Longest-Repeating-Character-Replacement.cpp](../leetcode/424-Longest-Repeating-Character-Replacement.cpp) | medium | sliding windows | ✅ |
+| 1 | [Two Sum](https://leetcode.com/problems/two-sum/description/) | [1-Two-Sum.cpp](../leetcode/1-Two-Sum.cpp) | medium | hast tables | ✅ |
 ---
 
 *Última actualización: January 2026*
