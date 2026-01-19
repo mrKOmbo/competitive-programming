@@ -68,6 +68,7 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 424 | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/) | [424-Longest-Repeating-Character-Replacement.cpp](../leetcode/424-Longest-Repeating-Character-Replacement.cpp) | medium | sliding windows | ✅ |
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum/description/) | [1-Two-Sum.cpp](../leetcode/1-Two-Sum.cpp) | medium | hast tables | ✅ |
 | 49 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/description/) | [49-Group-Anagrams.cpp](../leetcode/49-Group-Anagrams.cpp) | medium | hash tables | ✅ |
+| 347 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/) | [347-Top-K-Frequent-Elements.cpp](../leetcode/347-Top-K-Frequent-Elements.cpp) | medium | hash table | ✅ |
 ---
 
 *Última actualización: January 2026*
