@@ -69,6 +69,7 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum/description/) | [1-Two-Sum.cpp](../leetcode/1-Two-Sum.cpp) | medium | hast tables | ✅ |
 | 49 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/description/) | [49-Group-Anagrams.cpp](../leetcode/49-Group-Anagrams.cpp) | medium | hash tables | ✅ |
 | 347 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/) | [347-Top-K-Frequent-Elements.cpp](../leetcode/347-Top-K-Frequent-Elements.cpp) | medium | hash table | ✅ |
+| 560 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/description/) | [560-Subarray-Sum-Equals-K.cpp](../leetcode/560-Subarray-Sum-Equals-K.cpp) | medium | hash table | ✅ |
 ---
 
 *Última actualización: January 2026*
