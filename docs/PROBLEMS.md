@@ -70,6 +70,8 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 49 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/description/) | [49-Group-Anagrams.cpp](../leetcode/49-Group-Anagrams.cpp) | medium | hash tables | ✅ |
 | 347 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/) | [347-Top-K-Frequent-Elements.cpp](../leetcode/347-Top-K-Frequent-Elements.cpp) | medium | hash table | ✅ |
 | 560 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/description/) | [560-Subarray-Sum-Equals-K.cpp](../leetcode/560-Subarray-Sum-Equals-K.cpp) | medium | hash table | ✅ |
+| 155 | [Min Stack](https://leetcode.com/problems/min-stack/description/) | [155-Min-Stack.cpp](../leetcode/155-Min-Stack.cpp) | medium | stack | ✅ |
+| 20 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/) | [20-Valid-Parentheses.cpp](../leetcode/20-Valid-Parentheses.cpp) | easy | stack | ✅ |
 ---
 
 *Última actualización: January 2026*
