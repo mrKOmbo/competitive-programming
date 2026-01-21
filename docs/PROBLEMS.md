@@ -73,6 +73,7 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 155 | [Min Stack](https://leetcode.com/problems/min-stack/description/) | [155-Min-Stack.cpp](../leetcode/155-Min-Stack.cpp) | medium | stack | ✅ |
 | 20 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/) | [20-Valid-Parentheses.cpp](../leetcode/20-Valid-Parentheses.cpp) | easy | stack | ✅ |
 | 232 | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/description/) | [232-Implement-Queue-using-Stacks.cpp](../leetcode/232-Implement-Queue-using-Stacks.cpp) | easy | stack | ✅ |
+| 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/) | [104-Maximum-Depth-of-Binary-Tree.cpp](../leetcode/104-Maximum-Depth-of-Binary-Tree.cpp) | easy | graphs | ✅ |
 ---
 
 *Última actualización: January 2026*
