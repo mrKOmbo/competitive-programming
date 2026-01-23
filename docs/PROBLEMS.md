@@ -75,6 +75,7 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 232 | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/description/) | [232-Implement-Queue-using-Stacks.cpp](../leetcode/232-Implement-Queue-using-Stacks.cpp) | easy | stack | ✅ |
 | 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/) | [104-Maximum-Depth-of-Binary-Tree.cpp](../leetcode/104-Maximum-Depth-of-Binary-Tree.cpp) | easy | graphs | ✅ |
 | 112 | [Path Sum](https://leetcode.com/problems/path-sum/description/) | [112-Path-Sum.cpp](../leetcode/112-Path-Sum.cpp) | easy | threes | ✅ |
+| 101 | [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/description/) | [101-Symmetric-Tree.cpp](../leetcode/101-Symmetric-Tree.cpp) | easy | threes | ✅ |
 ---
 
 *Última actualización: January 2026*
