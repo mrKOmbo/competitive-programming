@@ -76,6 +76,8 @@ Lista completa de problemas resueltos organizados por plataforma.
 | 104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/) | [104-Maximum-Depth-of-Binary-Tree.cpp](../leetcode/104-Maximum-Depth-of-Binary-Tree.cpp) | easy | graphs | ✅ |
 | 112 | [Path Sum](https://leetcode.com/problems/path-sum/description/) | [112-Path-Sum.cpp](../leetcode/112-Path-Sum.cpp) | easy | threes | ✅ |
 | 101 | [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/description/) | [101-Symmetric-Tree.cpp](../leetcode/101-Symmetric-Tree.cpp) | easy | threes | ✅ |
+| 344 | [Reverse String](https://leetcode.com/problems/reverse-string/description/) | [344-Reverse-String.cpp](../leetcode/344-Reverse-String.cpp) | easy | two pointers, string | ✅ |
+| 26 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/) | [26-Remove-Duplicates-from-Sorted-Array.cpp](../leetcode/26-Remove-Duplicates-from-Sorted-Array.cpp) | easy | two pointers | ✅ |
 ---
 
-*Última actualización: January 2026*
+*Última actualización: March 2026*
