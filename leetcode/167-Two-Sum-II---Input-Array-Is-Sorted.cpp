@@ -37,32 +37,21 @@ void fastIO()
 
 
 
-vector<int> solve(vector<int>& numbers, int target)
-{
-        int i=0,j=numbers.size()-1;
-        vector<int> rslt={-1,-1};
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int j=numbers.size()-1, i=0;
         while(i<j){
             int sum = numbers[i]+numbers[j];
-            if(sum==target) {
-                return {i+1,j+1};
-            }
+            if(sum==target) return {i+1,j+1};
             if(sum>target){
                 j--;
-            } else if (sum<target){
+            } else if(sum<target){
                 i++;
             }
-        } 
-        return rslt;
+        }
+        return {-1,-1};
+    }
 }
 
-int main()
-{
-    fastIO();
-    int T; // cin >> T;
-    vector<int> b = {1,23,2};
-    while (T--)
-    {
-        vector<int> b = solve(b,9);
-    }
-    return 0;
-}
+
